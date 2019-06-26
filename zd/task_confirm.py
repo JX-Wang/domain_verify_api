@@ -84,9 +84,12 @@ class querytaskconfirmhandler(tornado.web.RequestHandler):
 
 
 def application():
+    """
+    :return: Application class app
+    """
     app = tornado.web.Application(
-        [(r'/sec/task_confirm/', sectaskconfirmhandler),
-         (r'/query/task_confirm/', querytaskconfirmhandler)
+        [(r'/task_confirm/sec/', sectaskconfirmhandler),
+         (r'/task_confirm/query/', querytaskconfirmhandler)
          ])
     return app
 
@@ -95,3 +98,5 @@ if __name__ == '__main__':
     app = application()
     app.listen(8888)
     tornado.ioloop.IOLoop.current().start()
+
+
